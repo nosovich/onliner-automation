@@ -14,8 +14,9 @@ public class BasePage {
         }
     }
 
-    public void moveToElement(SelenideElement element) {
+    public SelenideElement moveToElement(SelenideElement element) {
         Selenide.actions().moveToElement(element);
+        return element;
     }
 }
 

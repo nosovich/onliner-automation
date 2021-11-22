@@ -3,6 +3,7 @@ package pageObject.cart;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 import pageObject.BasePage;
+import patterns.UserBuilder;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -12,14 +13,16 @@ public class CartPage extends BasePage {
     SelenideElement onlinerLogo = $("a[href='https://www.onliner.by']");
     SelenideElement title = $("[class^='cart-form__title']");
     SelenideElement productInCart = $("[class*='cart-form__description_font-weight_semibold']");
-    SelenideElement productDescription = $("div[class$='cart-form__description_condensed-complementary helpers_hide_tablet']");
     SelenideElement productQuantity = $("[class*='cart-form__input_max-width_xxxxsssss cart-form__input_nonadaptive']");
     SelenideElement removeProductBtn = $("[class$='cart-form__button_remove']");
     SelenideElement deliveryCity = $("a[class='cart-form__link cart-form__link_primary cart-form__link_base-alter']");
-    SelenideElement popUpDeliveryCity = $("div[class='auth-popup auth-popup_primary auth-popup_middle']");
-    SelenideElement enterDeliveryCity = $("input[placeholder='Укажите ваш населенный пункт']");
-    SelenideElement changeDeliveryCityBtn = $("div[class='auth-form__control auth-form__control_condensed-additional']>button");
-    SelenideElement closePopUpDeliveryCity = $("span[class='auth-popup__close']");
+    SelenideElement enterCity = $("[class*='auth-input auth-input_primary auth-input_base']");
+    SelenideElement changeCityBtn = $("button[class^='auth-button auth-button_primary']");
+    SelenideElement closePopUpBtn = $("span[class='auth-popup__close']");
+
+
+    SelenideElement popUpField = $("[class='auth-form__mediabox auth-form__mediabox_primary auth-form__mediabox_extended']");
+
 
     public CartPage verifyCartPage() {
         onlinerLogo.shouldBe(exist);
@@ -42,8 +45,7 @@ public class CartPage extends BasePage {
     }
 
     public CartPage removeProduct() {
-        moveToElement(removeProductBtn);
-        removeProductBtn.shouldBe(enabled).click();
+        moveToElement(removeProductBtn).shouldBe(enabled).click();
         productInCart.should(disappear);
         return this;
     }
@@ -53,14 +55,13 @@ public class CartPage extends BasePage {
         return this;
     }
 
-    public CartPage popUpDeliveryCty() {
-        deliveryCity.getValue().equals(matchText("Минск"));
+    public CartPage changeDeliveryCity(UserBuilder user) {
         deliveryCity.click();
-        popUpDeliveryCity.shouldBe(visible);
-        enterDeliveryCity.setValue("Витебск");
-        changeDeliveryCityBtn.click();
-        closePopUpDeliveryCity.click();
-        deliveryCity.getValue().equals(matchText("Витебск"));
+        moveToElement(enterCity).setValue(user.getCity());
+        pause(3);
+        enterCity.pressEnter();
+        changeCityBtn.click();
+        moveToElement(deliveryCity).should(matchText(user.getCity()));
         return this;
     }
 

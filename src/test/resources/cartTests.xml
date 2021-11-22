@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="CartTest">
     <parameter name="env" value="onliner"></parameter>
-    <test name="Adding and removing items from the cart">
+    <test name="Tests with cart changes">
         <classes>
             <class name="cartTests.CartTests"/>
         </classes>

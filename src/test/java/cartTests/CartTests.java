@@ -14,8 +14,10 @@ import pageObject.catalog.MobilePhoneMenuEnum;
 import pageObject.filter.FilterPage;
 import pageObject.header.Header;
 import pageObject.product.ProductPage;
+import patterns.UserBuilder;
 
 public class CartTests extends BaseTest {
+    UserBuilder user;
 
     @BeforeMethod
     public void preconditions() {
@@ -32,7 +34,7 @@ public class CartTests extends BaseTest {
     }
 
     @Description("Checking for adding and removing items from the cart")
-    @Test(priority = 1, enabled = false)
+    @Test(priority = 1)
     public void addAndRemoveProductToCart_Test() {
         get(ProductPage.class)
                 .verifyProductPage()
@@ -44,11 +46,17 @@ public class CartTests extends BaseTest {
                 .removeProduct();
     }
 
-    @Description("Checking for pop-up window")
-    @Test(priority = 2, enabled = false)
+    @Description("Change city of delivery in pop-up window")
+    @Test(priority = 2)
     public void checkPopUp_Test() {
+        user = UserBuilder.builder()
+                .city("Витебск")
+                .build();
         get(ProductPage.class)
-                .checkPopUpPriceChart();
+                .addToCart()
+                .goToCart();
+        get(CartPage.class)
+                .changeDeliveryCity(user);
     }
 
     @Description("Checking for the maximum number of items in the cart")
