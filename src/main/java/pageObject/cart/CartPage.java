@@ -1,9 +1,7 @@
 package pageObject.cart;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
-import org.testng.Assert;
 import pageObject.BasePage;
 
 import static com.codeborne.selenide.Condition.*;
@@ -17,6 +15,11 @@ public class CartPage extends BasePage {
     SelenideElement productDescription = $("div[class$='cart-form__description_condensed-complementary helpers_hide_tablet']");
     SelenideElement productQuantity = $("[class*='cart-form__input_max-width_xxxxsssss cart-form__input_nonadaptive']");
     SelenideElement removeProductBtn = $("[class$='cart-form__button_remove']");
+    SelenideElement deliveryCity = $("a[class='cart-form__link cart-form__link_primary cart-form__link_base-alter']");
+    SelenideElement popUpDeliveryCity = $("div[class='auth-popup auth-popup_primary auth-popup_middle']");
+    SelenideElement enterDeliveryCity = $("input[placeholder='Укажите ваш населенный пункт']");
+    SelenideElement changeDeliveryCityBtn = $("div[class='auth-form__control auth-form__control_condensed-additional']>button");
+    SelenideElement closePopUpDeliveryCity = $("span[class='auth-popup__close']");
 
     public CartPage verifyCartPage() {
         onlinerLogo.shouldBe(exist);
@@ -49,4 +52,16 @@ public class CartPage extends BasePage {
         onlinerLogo.click();
         return this;
     }
+
+    public CartPage popUpDeliveryCty() {
+        deliveryCity.getValue().equals(matchText("Минск"));
+        deliveryCity.click();
+        popUpDeliveryCity.shouldBe(visible);
+        enterDeliveryCity.setValue("Витебск");
+        changeDeliveryCityBtn.click();
+        closePopUpDeliveryCity.click();
+        deliveryCity.getValue().equals(matchText("Витебск"));
+        return this;
+    }
+
 }
