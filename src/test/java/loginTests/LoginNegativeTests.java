@@ -10,30 +10,12 @@ import pageObject.header.Header;
 import pageObject.login.LoginPage;
 import patterns.UserBuilder;
 
-public class LoginTests extends BaseTest {
+public class LoginNegativeTests extends BaseTest {
     UserBuilder user;
-
-    @Description("Login verification with valid data")
-    @Test(priority = 1)
-    public void ValidLogin_Test() {
-        user = UserBuilder.builder()
-                .email("qa07group@mail.ru")
-                .password("pswrd12345")
-                .build();
-        get(Header.class)
-                .goToLoginPage();
-        get(LoginPage.class)
-                .enterEmail(user)
-                .enterPassword(user)
-                .clickLoginBtn()
-                .clickCheckBox();
-        get(Header.class)
-                .verifyHeader();
-    }
 
     @Description("Login verification with incorrect data entered")
     @Parameters({"email", "password", "errorText"})
-    @Test(priority = 2)
+    @Test
     public void LoginNegative_Test(String email, String password, String error) {
         user = UserBuilder.builder()
                 .email(email)

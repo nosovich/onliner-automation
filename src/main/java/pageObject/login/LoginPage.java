@@ -32,7 +32,7 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage clickCheckBox() {
-        moveToElement(checkbox).click();
+        Selenide.actions().moveToElement(checkbox).click();
         return this;
     }
 
