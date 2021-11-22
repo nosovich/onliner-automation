@@ -1,7 +1,10 @@
 package cartTests;
 
+import com.codeborne.selenide.WebDriverRunner;
 import driver.BaseTest;
 import jdk.jfr.Description;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObject.cart.CartPage;
@@ -15,7 +18,7 @@ import pageObject.product.ProductPage;
 
 public class CartTests extends BaseTest {
 
-    @BeforeTest
+    @BeforeMethod
     public void preconditions() {
         get(Header.class)
                 .goToCatalog();
@@ -24,15 +27,14 @@ public class CartTests extends BaseTest {
                 .chooseCatalogMenuCategory(CatalogMenuEnum.ELECTRONIC)
                 .chooseElectronicMenu(ElectronicMenuEnum.MOBILE_PHONES_AND_ACCESSORIES)
                 .chooseMobilePhoneMenu(MobilePhoneMenuEnum.FITNESS_BRACELETS);
-
+        get(FilterPage.class)
+                .verifyFilterPage()
+                .chooseProduct();
     }
 
     @Description("Checking for adding and removing items from the cart")
     @Test
     public void addAndRemoveProductToCart_Test() {
-        get(FilterPage.class)
-                .verifyFilterPage()
-                .chooseProduct();
         get(ProductPage.class)
                 .verifyProductPage()
                 .addToCart()
@@ -42,4 +44,17 @@ public class CartTests extends BaseTest {
                 .checkProductInCart()
                 .removeProduct();
     }
+
+    @Test
+    public void checkPopUp_Test() {
+        get(ProductPage.class)
+                .checkPopUpPriceChart();
+    }
+
+    @AfterMethod
+    public void postconditions() {
+        WebDriverRunner.closeWebDriver();
+    }
+
+
 }

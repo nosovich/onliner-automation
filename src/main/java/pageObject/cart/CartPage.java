@@ -22,6 +22,7 @@ public class CartPage extends BasePage {
 
     public CartPage checkProductInCart() {
         productInCart.shouldBe(visible);
+        productQuantity.click();
         return this;
     }
 
@@ -33,7 +34,8 @@ public class CartPage extends BasePage {
     }
 
     public CartPage removeProduct() {
-        removeProductBtn.click();
+        moveToElement(removeProductBtn);
+        removeProductBtn.shouldBe(enabled).click();
         productInCart.should(disappear);
         return this;
     }

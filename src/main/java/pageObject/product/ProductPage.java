@@ -11,11 +11,10 @@ public class ProductPage extends BasePage {
 
     SelenideElement productNameTitle = $("h1[class='catalog-masthead__title']");
     SelenideElement addToCartBtn = $("[class='product-aside__box'] [class*='button-style_expletive']");
-    SelenideElement goToCartBtn = $("[class$='product-recommended__control_checkout']>a[class$='product-recommended__button']");
+    SelenideElement goToCartBtn = $(".auth-bar.auth-bar--top > a");
     SelenideElement priceChartBtn = $("a[class*='button_white button_big']");
     SelenideElement popUpPriceChart = $("div[class='popup-style__content']");
     SelenideElement popUpPriceChartTitle = $("div[class='offers-form__title offers-form__title_middle-alter']");
-    SelenideElement popUpPriceChartCheckbox = $("[class*='i-checkbox offers-form']");
     SelenideElement closePopUp = $(".popup-style__close");
 
 
@@ -41,7 +40,6 @@ public class ProductPage extends BasePage {
         priceChartBtn.click();
         popUpPriceChart.shouldBe(visible);
         popUpPriceChartTitle.shouldBe(visible);
-        popUpPriceChartCheckbox.shouldNotBe(enabled);
         closePopUp.click();
         return this;
     }
