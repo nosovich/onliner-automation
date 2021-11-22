@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="LoginTest">
-    <parameter name="env" value="oniner"></parameter>
+    <parameter name="env" value="onliner"></parameter>
     <test name="Valid Login" enabled="false">
         <classes>
             <class name="loginTests.LoginTests"/>
