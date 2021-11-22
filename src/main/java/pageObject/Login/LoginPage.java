@@ -1,12 +1,11 @@
 package pageObject.Login;
 
-import Patterns.UserBuilder;
+import patterns.UserBuilder;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import pageObject.BasePage;
 
 import static com.codeborne.selenide.Condition.matchText;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage extends BasePage {

@@ -1,6 +1,6 @@
 package pageObject.Filter;
 
-import Patterns.PriceFilter;
+import patterns.PriceFilter;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;

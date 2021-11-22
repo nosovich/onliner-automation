@@ -1,12 +1,10 @@
 package LoginTests;
 
-import Patterns.UserBuilder;
+import patterns.UserBuilder;
 import driver.BaseTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObject.CheckBoxPage;
-import pageObject.Header;
-import pageObject.Home.HomePage;
+import pageObject.Header.Header;
 import pageObject.Login.LoginPage;
 
 public class LoginTests extends BaseTest {

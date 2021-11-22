@@ -1,4 +1,4 @@
-package Patterns;
+package patterns;
 
 import lombok.Data;
 
