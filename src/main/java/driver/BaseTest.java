@@ -14,4 +14,5 @@ public class BaseTest {
     public <PageObjectClass> PageObjectClass get(Class<PageObjectClass> pageObjectClassClass) {
         return driver().hasWebDriverStarted() ? page(pageObjectClassClass) : open(PropertyReader.getProperties().getProperty("url"), pageObjectClassClass);
     }
+
 }

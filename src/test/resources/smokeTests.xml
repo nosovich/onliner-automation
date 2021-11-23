@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke">
+    <parameter name="env" value="onliner"></parameter>
+
+    <test name="Valid Login">
+        <classes>
+            <class name="loginTests.LoginValidTest"/>
+        </classes>
+    </test>
+
+    <test name="Adding and removing items from the cart">
+        <classes>
+            <class name="cartTests.AddAndRemoveTest"/>
+        </classes>
+    </test>
+
+</suite>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ProductPageTest">
+    <parameter name="env" value="onliner"></parameter>
+    <test name="Checking for pop-up window with prices changes">
+        <classes>
+            <class name="productPageTests.ProductPageTests"/>
+        </classes>
+    </test>
+</suite>
