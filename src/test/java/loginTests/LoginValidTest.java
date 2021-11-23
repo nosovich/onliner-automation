@@ -3,8 +3,7 @@ package loginTests;
 import com.codeborne.selenide.WebDriverRunner;
 import driver.BaseTest;
 import jdk.jfr.Description;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import pageObject.header.Header;
 import pageObject.login.LoginPage;
@@ -31,26 +30,8 @@ public class LoginValidTest extends BaseTest {
                 .verifyHeader();
     }
 
-//    @Description("Login verification with incorrect data entered")
-//    @Parameters({"email", "password", "errorText"})
-//    @Test(priority = 2)
-//    public void LoginNegative_Test(String email, String password, String error) {
-//        user = UserBuilder.builder()
-//                .email(email)
-//                .password(password)
-//                .build();
-//        get(Header.class)
-//                .goToLoginPage();
-//        get(LoginPage.class)
-//                .enterEmail(user)
-//                .enterPassword(user)
-//                .clickLoginBtn()
-//                .checkErrorText(error);
-//    }
-//
-//    @AfterMethod
-//    public void postconditions() {
-//        WebDriverRunner.closeWebDriver();
-//    }
-
+    @AfterTest
+    public void postconditions() {
+        WebDriverRunner.closeWebDriver();
+    }
 }

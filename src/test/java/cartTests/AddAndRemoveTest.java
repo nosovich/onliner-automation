@@ -1,8 +1,10 @@
-package productPageTests;
+package cartTests;
 
 import driver.BaseTest;
 import jdk.jfr.Description;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pageObject.cart.CartPage;
 import pageObject.catalog.CatalogMenuEnum;
 import pageObject.catalog.CatalogPage;
 import pageObject.catalog.ElectronicMenuEnum;
@@ -10,12 +12,12 @@ import pageObject.catalog.MobilePhoneMenuEnum;
 import pageObject.filter.FilterPage;
 import pageObject.header.Header;
 import pageObject.product.ProductPage;
+import patterns.UserBuilder;
 
-public class ProductPageTests extends BaseTest {
+public class AddAndRemoveTest extends BaseTest {
 
-    @Description("Checking for pop-up window with prices changes")
-    @Test()
-    public void checkPopUp_Test() {
+    @BeforeTest
+    public void preconditions() {
         get(Header.class)
                 .goToCatalog();
         get(CatalogPage.class)
@@ -26,7 +28,20 @@ public class ProductPageTests extends BaseTest {
         get(FilterPage.class)
                 .verifyFilterPage()
                 .chooseProduct();
-        get(ProductPage.class)
-                .checkPopUpPriceChart();
     }
+
+    @Description("Checking for adding and removing items from the cart")
+    @Test
+    public void addAndRemoveProductToCart_Test() {
+        get(ProductPage.class)
+                .verifyProductPage()
+                .addToCart()
+                .goToCart();
+        get(CartPage.class)
+                .verifyCartPage()
+                .checkProductInCart()
+                .removeProduct();
+    }
+
+
 }

@@ -20,7 +20,7 @@
         <webdrivermanager.version>5.0.3</webdrivermanager.version>
         <restAssured.version>4.4.0</restAssured.version>
         <selenide.version>5.25.0</selenide.version>
-        <suite>src/test/resources/loginTests.xml</suite>
+        <suite>src/test/resources/smokeTests.xml</suite>
     </properties>
     <build>
         <plugins>

@@ -34,6 +34,5 @@ public class FilterTests extends BaseTest {
                 .enterMinPrice(priceFilter)
                 .enterMaxPrice(priceFilter)
                 .checkPriceFilter(priceFilter);
-
     }
 }

@@ -33,21 +33,8 @@ public class CartTests extends BaseTest {
                 .chooseProduct();
     }
 
-    @Description("Checking for adding and removing items from the cart")
-    @Test(priority = 1)
-    public void addAndRemoveProductToCart_Test() {
-        get(ProductPage.class)
-                .verifyProductPage()
-                .addToCart()
-                .goToCart();
-        get(CartPage.class)
-                .verifyCartPage()
-                .checkProductInCart()
-                .removeProduct();
-    }
-
     @Description("Change city of delivery in pop-up window")
-    @Test(priority = 2)
+    @Test
     public void checkPopUp_Test() {
         user = UserBuilder.builder()
                 .city("Витебск")
@@ -60,7 +47,7 @@ public class CartTests extends BaseTest {
     }
 
     @Description("Checking for the maximum number of items in the cart")
-    @Test(priority = 3)
+    @Test
     public void checkMaxProductQuantity_Test() {
         get(ProductPage.class)
                 .verifyProductPage()
