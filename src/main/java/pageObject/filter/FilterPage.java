@@ -21,7 +21,7 @@ public class FilterPage extends BasePage {
     SelenideElement product = $("span[data-bind*='extended_name']");
     ElementsCollection productNames = $$("span[data-bind*='extended_name']");
     ElementsCollection productPrices = $$("span[data-bind*='minPrice']");
-    SelenideElement minPriceField = $(By.xpath("//input[@placeholder='от']"));
+    SelenideElement minPriceField = $(By.xpath("//input[@class='schema-filter-control__item schema-filter__number-input schema-filter__number-input_price']"));
     SelenideElement maxPriceField = $(By.xpath("(//input[@class='schema-filter-control__item schema-filter__number-input schema-filter__number-input_price'])[2]"));
 
     public FilterPage verifyFilterPage() {

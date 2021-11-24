@@ -33,6 +33,7 @@ public class CartTests extends BaseTest {
                 .chooseProduct();
     }
 
+    // Данный тест не проходит на CI, проблемы с кириллицей. Локально тест работает.
     @Description("Change city of delivery in pop-up window")
     @Test
     public void checkPopUp_Test() {

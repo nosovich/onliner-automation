@@ -26,6 +26,7 @@ public class ProductPage extends BasePage {
     public ProductPage addToCart() {
         moveToElement(addToCartBtn);
         addToCartBtn.click();
+        pause(1);
         return this;
     }
 

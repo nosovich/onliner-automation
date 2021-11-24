@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public enum ElectronicMenuEnum {
 
-    MOBILE_PHONES_AND_ACCESSORIES($(By.xpath("//div[contains(text(),'Мобильные телефоны')]"))),
+    MOBILE_PHONES_AND_ACCESSORIES($(By.xpath("(//div[@class='catalog-navigation-list__aside-title'])[1]"))),
     TELEVISION_AND_VIDEO($(By.xpath("//div[contains(text(),'Телевидение')]"))),
     TABLETS_AND_ELECTRONIC_BOOKS($(By.xpath("//div[contains(text(),'Планшеты')]"))),
     AUDIO_EQUIPMENT($(By.xpath("//div[contains(text(),'Аудиотехника')]"))),
