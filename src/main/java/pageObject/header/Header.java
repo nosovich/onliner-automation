@@ -15,7 +15,7 @@ public class Header extends BasePage {
     SelenideElement onlinerLogo = $(".onliner_logo");
     SelenideElement search = $(".fast-search__form");
     SelenideElement cartIcon = $(".auth-bar.auth-bar--top > a");
-    SelenideElement loginBtn = $("[class='auth-bar__item auth-bar__item--text']");
+    SelenideElement loginBtn = $(By.xpath("//div[contains(@class,'auth-bar--top')]//div[@class='auth-bar__item auth-bar__item--text']"));
 
 
     ElementsCollection navigationMenu = $$(By.cssSelector(".b-main-navigation"));
