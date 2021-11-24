@@ -21,6 +21,8 @@
         <restAssured.version>4.4.0</restAssured.version>
         <selenide.version>5.25.0</selenide.version>
         <suite>src/test/resources/smokeTests.xml</suite>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <build>
         <plugins>
