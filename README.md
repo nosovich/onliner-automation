@@ -1,5 +1,5 @@
 # onliner-automation
-***
+
 ##Requirements
 ***
 - Java version >= 8
