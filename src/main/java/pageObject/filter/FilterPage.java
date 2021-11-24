@@ -5,7 +5,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import pageObject.BasePage;
+import pageObject.base.BasePage;
 
 import java.util.ArrayList;
 import java.util.List;

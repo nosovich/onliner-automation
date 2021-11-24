@@ -3,7 +3,7 @@
 <suite name="Smoke">
     <parameter name="env" value="onliner"></parameter>
 
-    <test name="Valid Login">
+    <test name="Valid Login" enabled="true">
         <classes>
             <class name="loginTests.LoginValidTest"/>
         </classes>

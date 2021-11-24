@@ -2,7 +2,7 @@ package pageObject.cart;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
-import pageObject.BasePage;
+import pageObject.base.BasePage;
 import patterns.UserBuilder;
 
 import static com.codeborne.selenide.Condition.*;

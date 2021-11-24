@@ -1,7 +1,7 @@
 package pageObject.catalog;
 
 import com.codeborne.selenide.SelenideElement;
-import pageObject.BasePage;
+import pageObject.base.BasePage;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$;

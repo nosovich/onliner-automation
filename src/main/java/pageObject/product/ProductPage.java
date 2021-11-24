@@ -1,7 +1,8 @@
 package pageObject.product;
 
 import com.codeborne.selenide.SelenideElement;
-import pageObject.BasePage;
+import org.openqa.selenium.By;
+import pageObject.base.BasePage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -15,7 +16,7 @@ public class ProductPage extends BasePage {
     SelenideElement popUpPriceChart = $("div[class='popup-style__content']");
     SelenideElement popUpPriceChartTitle = $("div[class='offers-form__title offers-form__title_middle-alter']");
     SelenideElement closePopUp = $(".popup-style__close");
-
+    SelenideElement leaveFeedbackBtn = $(By.xpath("//a[contains(text(),'Оставить отзыв')]"));
 
     public ProductPage verifyProductPage() {
         moveToElement(productNameTitle);
@@ -24,15 +25,13 @@ public class ProductPage extends BasePage {
     }
 
     public ProductPage addToCart() {
-        moveToElement(addToCartBtn);
-        addToCartBtn.click();
+        moveToElement(addToCartBtn).click();
         pause(1);
         return this;
     }
 
     public ProductPage goToCart() {
-        moveToElement(goToCartBtn);
-        goToCartBtn.click();
+        moveToElement(goToCartBtn).click();
         return this;
     }
 
@@ -41,6 +40,11 @@ public class ProductPage extends BasePage {
         popUpPriceChart.shouldBe(visible);
         popUpPriceChartTitle.shouldBe(visible);
         closePopUp.click();
+        return this;
+    }
+
+    public ProductPage goToFeedbackPage() {
+        leaveFeedbackBtn.click();
         return this;
     }
 }
