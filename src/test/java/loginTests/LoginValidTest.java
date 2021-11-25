@@ -8,12 +8,13 @@ import org.testng.annotations.Test;
 import pageObject.header.Header;
 import pageObject.login.LoginPage;
 import patterns.UserBuilder;
+import testngConfig.Retry;
 
 public class LoginValidTest extends BaseTest {
     UserBuilder user;
 
     @Description("Login verification with valid data")
-    @Test(priority = 1)
+    @Test(retryAnalyzer = Retry.class)
     public void ValidLogin_Test() {
         user = UserBuilder.builder()
                 .email("v.nos1706@gmail.com")

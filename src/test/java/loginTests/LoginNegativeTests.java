@@ -9,13 +9,14 @@ import org.testng.annotations.Test;
 import pageObject.header.Header;
 import pageObject.login.LoginPage;
 import patterns.UserBuilder;
+import testngConfig.Retry;
 
 public class LoginNegativeTests extends BaseTest {
     UserBuilder user;
 
     @Description("Login verification with incorrect data entered")
     @Parameters({"email", "password", "errorText"})
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void LoginNegative_Test(String email, String password, String error) {
         user = UserBuilder.builder()
                 .email(email)
