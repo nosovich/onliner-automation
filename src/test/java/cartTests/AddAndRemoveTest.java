@@ -1,7 +1,7 @@
 package cartTests;
 
 import driver.BaseTest;
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObject.cart.CartPage;

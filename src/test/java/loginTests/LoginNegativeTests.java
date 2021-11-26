@@ -2,7 +2,7 @@ package loginTests;
 
 import com.codeborne.selenide.WebDriverRunner;
 import driver.BaseTest;
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;

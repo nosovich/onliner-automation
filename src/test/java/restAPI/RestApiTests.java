@@ -1,7 +1,8 @@
 package restAPI;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
-import jdk.jfr.Description;
 import org.apache.commons.lang.StringUtils;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -31,7 +32,8 @@ public class RestApiTests {
         baseURI = "https://catalog.onliner.by/";
     }
 
-    @Description("Getting the product from a product list on FilterPage")
+    @Description("RestApiTests to check if a particular store's product has been added to the cart and then empty the cart")
+    @Step("Getting the product from a product list on FilterPage")
     @Test(priority = 1)
     public void getProduct_Test() {
         String endpoint = "sdapi/catalog.api/search/mobile?group=1&page=1";
@@ -44,7 +46,8 @@ public class RestApiTests {
         Assert.assertTrue(StringUtils.isNotEmpty(product.key));
     }
 
-    @Description("Getting the shop on ProductPage")
+    @Description("RestApiTests to check if a particular store's product has been added to the cart and then empty the cart")
+    @Step("Getting the shop on ProductPage")
     @Test(priority = 2, dependsOnMethods = "getProduct_Test")
     public void getProductShop_Test() {
         String endpoint = "sdapi/shop.api/products/" + product.key + "/positions?town=all&has_prime_delivery=0";
@@ -57,7 +60,8 @@ public class RestApiTests {
         Assert.assertTrue(shopId > 0);
     }
 
-    @Description("Add selected product to the cart")
+    @Description("RestApiTests to check if a particular store's product has been added to the cart and then empty the cart")
+    @Step("Add selected product to the cart")
     @Test(priority = 3, dependsOnMethods = "getProductShop_Test")
     public void addProductToCart_Test() {
         Product productToAdd = new Product() {{
@@ -78,7 +82,8 @@ public class RestApiTests {
         Assert.assertTrue(StringUtils.isNotEmpty(cartId));
     }
 
-    @Description("Check that exactly selected product was added to cart")
+    @Description("RestApiTests to check if a particular store's product has been added to the cart and then empty the cart")
+    @Step("Check that exactly selected product was added to cart")
     @Test(priority = 4, dependsOnMethods = "addProductToCart_Test")
     public void checkCart_Test() {
         String endpoint = "sdapi/cart.api/v2/detached-cart/" + cartId;
@@ -94,7 +99,8 @@ public class RestApiTests {
         Assert.assertEquals(product.id, cartProducts.get(0).product_id);
     }
 
-    @Description("Delete product from cart")
+    @Description("RestApiTests to check if a particular store's product has been added to the cart and then empty the cart")
+    @Step("Delete product from cart")
     @Test(priority = 5, dependsOnMethods = "checkCart_Test")
     public void deleteProductFromCart_Test() {
         String endpoint = "sdapi/cart.api/detached-cart/" + cartId;
@@ -115,7 +121,8 @@ public class RestApiTests {
 
     }
 
-    @Description("Check that cart is empty")
+    @Description("RestApiTests to check if a particular store's product has been added to the cart and then empty the cart")
+    @Step("Check that cart is empty")
     @Test(priority = 6, dependsOnMethods = "deleteProductFromCart_Test")
     public void ensureCartEmptiness_Test() {
         String endpoint = "sdapi/cart.api/v2/detached-cart/" + cartId;
