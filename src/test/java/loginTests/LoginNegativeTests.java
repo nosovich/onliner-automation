@@ -16,13 +16,14 @@ public class LoginNegativeTests extends BaseTest {
 
     @Description("Login verification with incorrect data entered")
     @Parameters({"email", "password", "errorText"})
-    @Test(retryAnalyzer = Retry.class)
+    @Test
     public void LoginNegative_Test(String email, String password, String error) {
         user = UserBuilder.builder()
                 .email(email)
                 .password(password)
                 .build();
         get(Header.class)
+                .goToCatalog()
                 .goToLoginPage();
         get(LoginPage.class)
                 .enterEmail(user)

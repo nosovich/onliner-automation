@@ -15,13 +15,14 @@ public class LoginValidTest extends BaseTest {
     UserBuilder user;
 
     @Description("Login verification with valid data")
-    @Test(retryAnalyzer = Retry.class)
+    @Test
     public void ValidLogin_Test() {
         user = UserBuilder.builder()
                 .email("v.nos1706@gmail.com")
                 .password("pswrd12345")
                 .build();
         get(Header.class)
+                .goToCatalog()
                 .goToLoginPage();
         get(LoginPage.class)
                 .enterEmail(user)
