@@ -23,7 +23,7 @@
 hs_err_pid*
 
 .idea
-/target/
-/allure-results/
-/allure-report/
-/build/
+/target
+/allure-results
+/allure-report
+/build
