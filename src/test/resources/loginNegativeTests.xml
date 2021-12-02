@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="LoginTest">
+<suite name="LoginNegativeTest">
     <parameter name="env" value="onliner"></parameter>
     <test name="Login with empty fields">
         <parameter name="email" value=""></parameter>
